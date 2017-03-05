@@ -22,7 +22,7 @@ tr:nth-child(odd) {
     background-color: #EAEAE6;
 }
 th{
-    background-color: black;
+    background-color: #3F6CAF;
     color:white;
     border-color:white;
 }
@@ -86,7 +86,7 @@ textarea {
     /* To position the buttons to the same position of the text fields */
     /* same size as the label elements */
     margin-left: 120px;
-    background-color: #475D9F;
+    background-color: #3F6CAF;
     color: white;
     border-color: #475D9F;
     border-radius: 0.5em;
@@ -142,7 +142,7 @@ nav#menu {
     border : 1px solid black;
     
     text-decoration: none;
-    width:150px;
+    width:250px;
 
 }
 
@@ -208,7 +208,7 @@ nav#menu ul li{
     list-style-type: none;
     border-bottom: 1px solid black;
     text-align: left;
-    padding-left: 1em;
+    padding-left: 2em;
 }
 
 nav#menu ul li a {
@@ -226,7 +226,7 @@ nav#menu ul li a {
     text-align:left;
     color:black;
     float:left;
-    width:70%;
+    width:60%;
     padding: 20px ; 
     border : 1px black solid;
 }
@@ -283,7 +283,7 @@ nav#menu ul li a {
     margin-left: 240px;
     width:150px;
     margin-top: 30px;
-    background-color: #475D9F;
+    background-color: #3F6CAF;
     color: white;
     margin-bottom: 50px;
     border-color: #475D9F;
@@ -294,14 +294,28 @@ nav#menu ul li a {
     /* To position the buttons to the same position of the text fields */
     /* same size as the label elements */
     margin-left: 10px;
-    width:70px;
+    width:100px;
     margin-top: 30px;
-    background-color: #475D9F;
+    background-color: #3F6CAF;
     color: white;
     margin-bottom: 50px;
     border-color: #475D9F;
     border-radius: 0.5em;
 }
+
+#admin_login_button {
+    /* To position the buttons to the same position of the text fields */
+    /* same size as the label elements */
+    margin-left: 10px;
+    width:70px;
+    margin-top: 30px;
+    background-color: #3F6CAF;
+    color: white;
+    margin-bottom: 50px;
+    border-color: #475D9F;
+    border-radius: 0.5em;
+}
+
 /* newstudy.jsp *********************************/
 
 #newstudy_form{
@@ -428,6 +442,24 @@ nav#menu ul li a {
 
 }
 
+#studies_new{
+    padding: .5em;
+    float: left;
+    margin-left: 20px;
+    background-color: #D3D3CF;
+display: inline-block;
+}
+
+#report_history{
+    padding: .5em;
+    float: left;
+    margin-left: 20px;
+    background-color: #D3D3CF;
+            margin-bottom: 30px;
+            display: inline-block;
+
+}
+
 
 #add_new_study a{
     margin-left: 20px;
@@ -446,6 +478,11 @@ nav#menu ul li a {
     margin-bottom: 100px;
 }
 
+input[type="radio"].answer 
+{
+    margin-right:-330px;
+        height:0.9em;
+}
 
 #edit_study_image{
     width: 120px;
@@ -455,21 +492,3 @@ nav#menu ul li a {
     border : 2px solid black;
     margin: 0px 10px 0px 10px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

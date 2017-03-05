@@ -24,6 +24,19 @@
         <br>
         <label># Participants *</label>  
         <input type="text" name="participants" required/><br>
+        <label># Answers *</label>  
+        <select id="question_ans_select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option selected="selected" value="3">3</option>
+        </select><br><br>
+        <label>Answer 1 *</label>
+        <input type="text" name="study_name" required /><br>
+        <label>Answer 2 *</label>
+        <input type="text" name="study_name" required /><br>
+        <label>Answer 3 *</label>
+        <input type="text" name="study_name" required /><br>
+
         <label>Description *</label>  
         <textarea name="description" required></textarea><br>
         <button type="submit"  id="submit_button">Update</button>

@@ -12,11 +12,13 @@
         <input type="password" name="password" required/><br>
         <label>&nbsp;</label>
         <input type="submit" value="Log in" id="login_button" >
-        <br>
+        <input type="submit" value="Admin" id="admin_login_button" onclick="form.action='admin.jsp?user=Admin'" > 
+
     </form>
-    <%-- Code to go to Sign up for a new account  --%>
+    
+        <%-- Code to go to Sign up for a new account  --%>
     <a href="signup.jsp" id="sign_up_link">Sign up for a new account</a>
 
 </section>
-    <%-- Include tag is used to import footer page --%>
+<%-- Include tag is used to import footer page --%>
 <%@include file="footer.jsp" %>

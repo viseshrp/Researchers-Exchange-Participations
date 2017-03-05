@@ -21,17 +21,12 @@
     <img src="images/small_tree.jpg" id="question_page_image" alt="Tree"/>
 
 <%--Code to rating the Question --%>
-    <div id="question_select"><p>I enjoy outdoor activities (1 strongly agree - 7 strongly disagree)</p>
+    <div id="question_select"><p>I enjoy outdoor activities (3 strongly agree - 5 strongly disagree)</p>
 
-        <select id="question_ans_select">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-        </select>
+  <input type="radio" class="answer" name="ans" value="3">3<br>
+  <input type="radio" class="answer" name="ans" value="4">4<br>
+  <input type="radio" class="answer" name="ans" value="5">5
+
     </div>
 <%-- Code to submit the Rating  --%>
     <div id="question_submit_div"> 

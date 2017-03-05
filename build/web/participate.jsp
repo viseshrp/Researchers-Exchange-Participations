@@ -15,9 +15,11 @@
     </ul>
 
 </nav>
-<%-- Section to display studies and participate in that study--%>
+<%-- Section to display studies and participate in that study and also history of reporting--%>
 <section class="participate">
-    <h3><span id="studies">Studies</span></h3>
+    <h3><span id="studies_new">Studies</span></h3>
+    <h3><span id="report_history"><a href="reporth.jsp?user=Hello,Kim">Report History</a></span></h3>
+
     <%-- Display the studies in the table --%>
     <%-- Clicking on Participate button displays Question.jsp page where 
             you can rate the question--%>
@@ -28,6 +30,7 @@
             <th>Image</th>		
             <th>Question</th>
             <th>Action</th>
+            <th>Report</th>
         </tr>
         <tr>
             <%-- First study details --%>
@@ -36,6 +39,9 @@
             <td>I enjoy outdoor activities</td>
             <td><form action="question.jsp?user=Hello,Kim" method="post"><input type="submit" class="participate_button"
                                                                                 value="Participate" /></form></td>
+            <td><form action="confirmrep.jsp?user=Hello,Kim" method="post"><input type="submit" class="participate_button"
+                                                                                  value="Report" /></form></td>
+
 
         </tr>
         <tr> 
@@ -45,12 +51,15 @@
             <td>I use computers on a daily basis</td> 
             <td><form action="question.jsp?user=Hello,Kim" method="post"><input type="submit" class="participate_button"
                                                                                 value="Participate" /></form></td>
+            <td><form action="confirmrep.jsp?user=Hello,Kim" method="post"><input type="submit" class="participate_button"
+                                                                                  value="Report" /></form></td>
 
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td> 
+            <td></td>
             <td></td> 
         </tr>
         <tr>
@@ -58,6 +67,7 @@
             <td></td>
             <td></td> 
             <td></td> 
+            <td></td>
         </tr>
     </table>
 

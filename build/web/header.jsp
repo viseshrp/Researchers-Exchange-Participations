@@ -23,6 +23,7 @@
                 <ul  class="left" >
                     <li>Researchers Exchange Participations</li>
                 </ul>
+                        <%-- Check user and display header--%>
                 <ul class="right">
                     <c:if test="${param.user == null}">
                         <li><a href="about.jsp">About Us</a></li>
@@ -30,10 +31,17 @@
                         <li><a href="login.jsp">Login</a></li>
                         </c:if>
                         <c:if test="${param.user != null}">
-                        <li><a href="aboutl.jsp?user=Hello,Kim">About Us</a></li>
-                        <li><a href="main.jsp?user=Hello,Kim">How it Works</a></li>
-                        <li>Hello, Kim</li>
-                        </c:if>
+                            <c:if test="${param.user == 'Admin'}">
+                            <li><a href="aboutl.jsp?user=Admin">About Us</a></li>
+                            <li><a href="admin.jsp?user=Admin">How it Works</a></li>
+                            <li>Admin</li>
+                            </c:if>
+                            <c:if test="${param.user == 'Hello,Kim'}">
+                            <li><a href="aboutl.jsp?user=Hello,Kim">About Us</a></li>
+                            <li><a href="main.jsp?user=Hello,Kim">How it Works</a></li>
+                            <li>Hello, Kim</li>
+                            </c:if>
+                    </c:if>
                 </ul>
 
             </nav>

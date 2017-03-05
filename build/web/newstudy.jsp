@@ -7,7 +7,7 @@
 <%@ include file="header.jsp" %>
 <%-- Code to display Page Name --%>
 <h3 id="page_name">Adding a study</h3>
- <%-- Code to go Back to the Main Page  --%>
+<%-- Code to go Back to the Main Page  --%>
 <a href="main.jsp?user=Hello,Kim" id="back_to_page">&laquo;Back to the Main Page</a>
 <%-- Section to create new study --%>
 <section id="newstudy_form">
@@ -22,6 +22,19 @@
         <br>
         <label># Participants *</label>  
         <input type="text" name="participants" required/><br>
+        <label># Answers *</label>  
+        <select id="question_ans_select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option selected="selected" value="3">3</option>
+        </select><br><br>
+        <label>Answer 1 *</label>
+        <input type="text" name="study_name" required /><br>
+        <label>Answer 2 *</label>
+        <input type="text" name="study_name" required /><br>
+        <label>Answer 3 *</label>
+        <input type="text" name="study_name" required /><br>
+
         <label>Description *</label>  
         <textarea name="description" required></textarea><br>
         <button type="submit"  id="submit_button">Submit</button>
