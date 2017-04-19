@@ -5,19 +5,48 @@
  */
 package com.rep.utility;
 
+import com.rep.models.Answer;
 import com.rep.models.User;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  *
  * @author viseshprasad
  */
 public class UserDB {
+
+        public static int addUser(User user) throws IOException {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+
+       // INSERT INTO user VALUES ('admin','admin@rep.com', 'Admin', 40, 10, 30);
+        String query
+                = "INSERT INTO user (name, email, type, numCoins, numPostedStudies, numParticipation) "
+                + "VALUES (?, ?, ?, ?, ?, ?)";
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, user.getName());
+            ps.setString(2, user.getEmail());
+            ps.setString(3, user.getType());
+            ps.setString(4, user.getNumCoins());
+            ps.setString(5, user.getNumPostedStudies());
+            ps.setString(6, user.getNumParticipation());
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+            return 0;
+        } finally {
+            DBUtil.closePreparedStatement(ps);
+        }
+    }
 
     public static User getUser(String email) throws IOException {
         ConnectionPool pool = ConnectionPool.getInstance();
