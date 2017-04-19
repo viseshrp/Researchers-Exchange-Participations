@@ -10,7 +10,7 @@
 <section class="participate">
 
     <%-- Code to go back to Main page  --%>
-    <a href="main.jsp?user=Hello,Kim" id="back_to_page">&laquo;Back to the Main Page</a><br><br>
+    <a href="UserController?action=main" id="back_to_page">&laquo;Back to the Main Page</a><br><br>
 
 
     <%-- Display the reported question status in the table --%>
@@ -22,17 +22,14 @@
             <th>Report Question</th>
             <th>Report Status</th>
         </tr>
-        <tr>
-            <td>01/15/2016</td>
-            <td>How much do you...</td>
-            <td>Approved</td>
-        </tr>
-        <tr>
-            <td>01/15/2016</td>
-            <td>What do you w..</td>
-            <td>Pending</td>
-        </tr>
-
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <c:forEach var="study" items="${study}">
+            <tr>
+                <td>${study.dateCreated}</td>
+                <td>${study.question}</td>
+                <td>${study.status}</td>
+            </tr>
+        </c:forEach>
     </table>
 
 </section>

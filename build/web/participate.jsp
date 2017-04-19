@@ -3,22 +3,22 @@
 <%-- Code to display items in List --%>
 <nav id="menu">
     <ul>
-        <li>Coins (<span class="count">2</span>) </li>
-        <li>Participants (<span class="count">3</span>) </li>
-        <li>Participation (<span class="count">5</span>) </li>
+        <li>Coins (<span class="count">${sessionScope.theUser.numCoins}</span>) </li>
+        <li>Participants (<span class="count">${sessionScope.theUser.numPostedStudies}</span>) </li>
+        <li>Participation (<span class="count">${sessionScope.theUser.numParticipation}</span>) </li>
         <li><br></li>
-        <li><a href="home.jsp?user=Hello,Kim">Home</a></li>
-        <li><a href="participate.jsp?user=Hello,Kim">Participate</a></li>
-        <li><a href="studies.jsp?user=Hello,Kim">My Studies</a></li>
-        <li><a href="recommend.jsp?user=Hello,Kim">Recommend</a></li>
-        <li><a href="contact.jsp?user=Hello,Kim">Contact</a></li>
+        <li><a href="UserController?action=main">Home</a></li>
+        <li><a href="StudyController?action=participate">Participate</a></li>
+        <li><a href="StudyController?action=studies">My Studies</a></li>
+        <li><a href="recommend.jsp">Recommend</a></li>
+        <li><a href="contact.jsp">Contact</a></li>
     </ul>
 
 </nav>
 <%-- Section to display studies and participate in that study and also history of reporting--%>
 <section class="participate">
     <h3><span id="studies_new">Studies</span></h3>
-    <h3><span id="report_history"><a href="reporth.jsp?user=Hello,Kim">Report History</a></span></h3>
+    <h3><span id="report_history"><a href="StudyController?action=report&AMP;ReporterEmail=${sessionScope.theUser.email}">Report History</a></span></h3>
 
     <%-- Display the studies in the table --%>
     <%-- Clicking on Participate button displays Question.jsp page where 
@@ -32,29 +32,17 @@
             <th>Action</th>
             <th>Report</th>
         </tr>
-        <tr>
-            <%-- First study details --%>
-            <td>GUI</td>
-            <td><img src="images/small_tree.jpg" alt="Tree"></td>
-            <td>I enjoy outdoor activities</td>
-            <td><form action="question.jsp?user=Hello,Kim" method="post"><input type="submit" class="participate_button"
-                                                                                value="Participate" /></form></td>
-            <td><form action="confirmrep.jsp?user=Hello,Kim" method="post"><input type="submit" class="participate_button"
-                                                                                  value="Report" /></form></td>
-
-
-        </tr>
-        <tr> 
-            <%-- Second study details --%>
-            <td>Sec</td>
-            <td><img src="images/computer.jpg" alt="Computer"></td>
-            <td>I use computers on a daily basis</td> 
-            <td><form action="question.jsp?user=Hello,Kim" method="post"><input type="submit" class="participate_button"
-                                                                                value="Participate" /></form></td>
-            <td><form action="confirmrep.jsp?user=Hello,Kim" method="post"><input type="submit" class="participate_button"
-                                                                                  value="Report" /></form></td>
-
-        </tr>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <c:forEach var="study" items="${study}">
+            <tr>
+                <td>${study.studyName}</td>
+                <td><img src="${study.getImageURL(study.studyCode)}" id="question_page_image" alt="Tree"/></td>
+                <td>${study.description}</td>
+                <td><form action="StudyController?action=participate&AMP;StudyCode=${study.studyCode}" method="post"><input type="submit" class="participate_button"
+                                                                                                                            value="Participate" /></form></td>
+                <td><form action="StudyController?action=report&AMP;StudyCode=${study.studyCode}&AMP;question=${study.studyName}" method="post"><input type="submit" class="participate_button" value="Report" /></form></td>                                                
+            </tr>
+        </c:forEach>
         <tr>
             <td></td>
             <td></td>

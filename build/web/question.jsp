@@ -3,37 +3,37 @@
 <%-- Code to display items in List --%>
 <nav id="menu">
     <ul>
-        <li>Coins (<span class="count">2</span>) </li>
-        <li>Participants (<span class="count">3</span>) </li>
-        <li>Participation (<span class="count">5</span>) </li>
+        <li>Coins (<span class="count">${sessionScope.theUser.numCoins}</span>) </li>
+        <li>Participants (<span class="count">${sessionScope.theUser.numPostedStudies}</span>) </li>
+        <li>Participation (<span class="count">${sessionScope.theUser.numParticipation}</span>) </li>
         <li><br></li>
-        <li><a href="home.jsp?user=Hello,Kim">Home</a></li>
-        <li><a href="participate.jsp?user=Hello,Kim">Participate</a></li>
-        <li><a href="studies.jsp?user=Hello,Kim">My Studies</a></li>
-        <li><a href="recommend.jsp?user=Hello,Kim">Recommend</a></li>
-        <li><a href="contact.jsp?user=Hello,Kim">Contact</a></li>
+        <li><a href="UserController?action=main">Home</a></li>
+        <li><a href="StudyController?action=participate">Participate</a></li>
+        <li><a href="StudyController?action=studies">My Studies</a></li>
+        <li><a href="recommend.jsp">Recommend</a></li>
+        <li><a href="contact.jsp">Contact</a></li>
     </ul>
 </nav>
 <%-- Code to Display Question--%>
 <section class="question_section">
     <h3><span id="studies">Question</span></h3>
     <%-- Img tag to display image--%>
-    <img src="images/small_tree.jpg" id="question_page_image" alt="Tree"/>
+    <img src="${requestScope.study.getImageURL(study.studyCode)}" id="question_page_image" alt="Tree"/>
 
-<%--Code to rating the Question --%>
-    <div id="question_select"><p>I enjoy outdoor activities (3 strongly agree - 5 strongly disagree)</p>
+    <%--Code to rating the Question --%>
+    <form action="StudyController?action=answer&AMP;StudyCode=${study.studyCode}" method="post">
+        <div id="question_select"><p>${requestScope.study.question}</p>
 
-  <input type="radio" class="answer" name="ans" value="3">3<br>
-  <input type="radio" class="answer" name="ans" value="4">4<br>
-  <input type="radio" class="answer" name="ans" value="5">5
+            <input type="radio" class="answer" name="ans" value="choice1">choice1<br>
+            <input type="radio" class="answer" name="ans" value="choice2">choice2<br>
+            <input type="radio" class="answer" name="ans" value="choice3">choice3<br>
 
-    </div>
-<%-- Code to submit the Rating  --%>
-    <div id="question_submit_div"> 
-        <form action="participate.jsp?user=Hello,Kim" method="post">
+        </div>
+        <%-- Code to submit the Rating  --%>
+        <div id="question_submit_div"> 
             <button type="submit" id="question_submit">Submit</button>    
-        </form>
-    </div>  
+        </div>  
+    </form>
 </section>
 <%-- Include tag is used to import footer page --%>
 <%@ include file="footer.jsp" %>

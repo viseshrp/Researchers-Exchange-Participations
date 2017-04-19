@@ -1,9 +1,3 @@
-<%-- 
-    Document   : header
-    Created on : Sep 19, 2015, 4:50:37 PM
-    Author     : Suman
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" 
            uri="http://java.sun.com/jsp/jstl/core" %>
@@ -15,38 +9,34 @@
         <title>Researchers Exchange Participations</title>
         <%-- importing CSS stylesheet --%>
         <link rel="stylesheet" href="styles/main.css">
+        <script src="js/rep.js" type="text/javascript"></script>
     </head>
     <body>
         <%-- Code to specify Header section of the page--%>
         <div id="header">
             <nav id="header_menu">
                 <ul  class="left" >
-                    <li>Researchers Exchange Participations</li>
+                    <li><a href="UserController?action=home">Researchers Exchange Participations</a></li>
                 </ul>
-                        <%-- Check user and display header--%>
                 <ul class="right">
-                    <c:if test="${param.user == null}">
-                        <li><a href="about.jsp">About Us</a></li>
-                        <li><a href="how.jsp">How it Works</a></li>
+                    <c:if test="${sessionScope.theUser == null && sessionScope.theAdmin == null }">
+                        <li><a href="UserController?action=about">About Us</a></li>
+                        <li><a href="UserController?action=how">How it Works</a></li>
                         <li><a href="login.jsp">Login</a></li>
                         </c:if>
-                        <c:if test="${param.user != null}">
-                            <c:if test="${param.user == 'Admin'}">
-                            <li><a href="aboutl.jsp?user=Admin">About Us</a></li>
-                            <li><a href="admin.jsp?user=Admin">How it Works</a></li>
-                            <li>Admin</li>
-                            </c:if>
-                            <c:if test="${param.user == 'Hello,Kim'}">
-                            <li><a href="aboutl.jsp?user=Hello,Kim">About Us</a></li>
-                            <li><a href="main.jsp?user=Hello,Kim">How it Works</a></li>
-                            <li>Hello, Kim</li>
-                            </c:if>
-                    </c:if>
+                        <c:if test="${sessionScope.theAdmin.type == 'Admin'}">
+                        <li><a href="UserController?action=about">About Us</a></li>
+                        <li><a href="UserController?action=how">How it Works</a></li>
+                        <li>${sessionScope.theAdmin.name} </li>
+                        <li><a href="UserController?action=logout">Logout</a></li>
+                        </c:if>
+                        <c:if test="${sessionScope.theUser.name != null}">
+                        <li><a href="aboutl.jsp?user=${sessionScope.theUser.name}">About Us</a></li>
+                        <li><a href="main.jsp?user=${sessionScope.theUser.name}">How it Works</a></li>
+                        <li>${sessionScope.theUser.name}</li>
+                        <li><a href="UserController?action=logout">Logout</a></li>
+                        </c:if>
                 </ul>
 
             </nav>
-
-
-
         </div>
-

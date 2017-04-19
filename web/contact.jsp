@@ -8,10 +8,10 @@
 <%-- Code to display Page Name --%>
 <h3 id="page_name">Contact</h3>
 <%-- Code to go back to Main page  --%>
-<a href="main.jsp?user=Hello,Kim" id="back_to_page">&laquo;Back to the Main Page</a>
+<a href="UserController?action=main" id="back_to_page">&laquo;Back to the Main Page</a>
 <%-- Section to input Contact details and Send Message --%>
 <section id="contact_form">
-    <form action="confirmc.jsp?user=Hello,Kim" method="post">
+    <form action="confirmc.jsp?user=${sessionScope.theUser.name}" method="post">
         <label>Name *</label>
         <input type="text" name="study_name" required /><br><br>
         <label>Email *</label>

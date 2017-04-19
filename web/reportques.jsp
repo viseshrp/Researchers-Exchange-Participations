@@ -11,7 +11,7 @@
     <h3><span id="studies">Reported Questions</span></h3>
 
     <%-- Code to go back to Main page  --%>
-    <a href="admin.jsp?user=Admin" id="back_to_page">&laquo;Back to the Main Page</a><br><br>
+    <a href="admin.jsp?user=${sessionScope.theAdmin.name}" id="back_to_page">&laquo;Back to the Main Page</a><br><br>
 
 
     <%-- Display the Reported Questions in a table --%>
@@ -23,18 +23,20 @@
             <th>Question</th>
             <th>Action</th>
         </tr>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <c:forEach var="study" items="${study}">
+            <tr>
+                <td>${study.question}</td>
+                <td><form action="StudyController?action=approve&AMP;StudyCode=${study.studyCode}" method="post">
+                        <input type="submit" class="participate_button" value="Approve" /></form>
+                    <form action="StudyController?action=disapprove&AMP;StudyCode=${study.studyCode}" method="post">
+                        <input type="submit" class="participate_button" value="Disapprove" /></form></td>                                                
+            </tr>
+        </c:forEach>
         <tr>
-            <td>I enjoy outdoor activities</td>
-            <td><form action="requestc.jsp?user=Admin&req=approve" method="post">
-                    <input type="submit" value="Approve" id="login_button" />
-                    <input type="submit" value="Disapprove" id="login_button" onclick="form.action = 'requestc.jsp?user=Admin&req=disapprove'" > 
-                </form></td>
-        </tr>
-        <tr>                    
             <td></td>
             <td></td>
         </tr>
-
     </table>
 
 </section>

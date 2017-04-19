@@ -7,23 +7,23 @@
 <%@ include file="header.jsp" %>
 <%-- Code to display items in List --%>
 <nav id="menu">
-    <c:if test="${param.user == 'Admin'}">
+    <c:if test="${sessionScope.theAdmin.type == 'Admin'}">
         <ul>
-            <li><a href="home.jsp?user=Admin">Home</a></li>
-            <li><a href="reportques.jsp?user=Admin">Reported Questions</a></li>
+            <li><a href="UserController?action=home">Home</a></li>
+            <li><a href="StudyController?action=reportedQuestions">Reported Questions</a></li>
         </ul>
     </c:if>
-    <c:if test="${param.user == 'Hello,Kim'}">
+    <c:if test="${sessionScope.theUser.type == 'Participant'}">
         <ul>
-            <li>Coins (<span class="count">2</span>) </li>
-            <li>Participants (<span class="count">3</span>) </li>
-            <li>Participation (<span class="count">5</span>) </li>
-            <li><br></li>
-            <li><a href="home.jsp?user=Hello,Kim">Home</a></li>
-            <li><a href="participate.jsp?user=Hello,Kim">Participate</a></li>
-            <li><a href="studies.jsp?user=Hello,Kim">My Studies</a></li>
-            <li><a href="recommend.jsp?user=Hello,Kim">Recommend</a></li>
-            <li><a href="contact.jsp?user=Hello,Kim">Contact</a></li>
+         <li>Coins (<span class="count">${sessionScope.theUser.numCoins}</span>) </li>
+        <li>Participants (<span class="count">${sessionScope.theUser.numPostedStudies}</span>) </li>
+        <li>Participation (<span class="count">${sessionScope.theUser.numParticipation}</span>) </li>
+           <li><br></li>
+            <li><a href="UserController?action=main">Home</a></li>
+            <li><a href="StudyController?action=participate">Participate</a></li>
+            <li><a href="StudyController?action=studies">My Studies</a></li>
+            <li><a href="recommend.jsp">Recommend</a></li>
+            <li><a href="contact.jsp">Contact</a></li>
         </ul>
     </c:if>
 

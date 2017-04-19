@@ -492,3 +492,17 @@ input[type="radio"].answer
     border : 2px solid black;
     margin: 0px 10px 0px 10px;
 }
+
+/* To align the two forms inline*/
+.loginAdmin_form {
+    display: inline !Important; 
+}
+
+/* Modifying the radio buttons width and height properties */
+input[type="radio"] {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    width : 55px;
+    height: 1.2em;
+}

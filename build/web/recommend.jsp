@@ -8,10 +8,10 @@
 <%-- Code to display Page Name --%>
 <h3 id="page_name">Recommend to a friend</h3>
 <%-- Code to display Page Name --%>
-<a href="main.jsp?user=Hello,Kim" id="back_to_page">&laquo;Back to the Main Page</a>
+<a href="UserController?action=main" id="back_to_page">&laquo;Back to the Main Page</a>
 <%-- Section to input Contact details and Send Message --%>
 <section id="recommend_form">
-    <form action="confirmr.jsp?user=Hello,Kim" method="post">
+    <form action="confirmr.jsp?user=${sessionScope.theUser.name}" method="post">
         <label>Name *</label>
         <input type="text" name="study_name" required /><br><br>
         <label>Email *</label>

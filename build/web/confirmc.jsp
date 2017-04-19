@@ -7,7 +7,7 @@
 <%@ include file="header.jsp" %>
 <%-- Code to go back to Main page  --%>
 <br>
-<a href="main.jsp?user=Hello,Kim" id="back_to_page">&laquo;Back to the Main Page</a>
+<a href="UserController?action=main" id="back_to_page">&laquo;Back to the Main Page</a>
 <%-- Section tag is used to display Message Sent   --%>
 <section id="confirmc">
     <h3>Message Sent. . .</h3>

@@ -9,8 +9,8 @@
 <%-- Code to display items in List --%>
 <nav id="menu">
     <ul>
-        <li><a href="home.jsp?user=Admin">Home</a></li>
-        <li><a href="reportques.jsp?user=Admin">Reported Questions</a></li>
+        <li><a href="UserController?action=home">Home</a></li>
+        <li><a href="StudyController?action=reportedQuestions">Reported Questions</a></li>
     </ul>
 </nav>
 <%-- Section tag is used to write description  --%>
