@@ -9,6 +9,24 @@
             30
         </session-timeout>
     </session-config>
+    
+        <servlet>
+        <servlet-name>UserController</servlet-name>
+        <servlet-class>com.rep.controllers.UserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudyController</servlet-name>
+        <servlet-class>com.rep.controllers.StudyController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserController</servlet-name>
+        <url-pattern>/UserController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudyController</servlet-name>
+        <url-pattern>/StudyController</url-pattern>
+    </servlet-mapping>
+    
     <welcome-file-list>
         <welcome-file>home.jsp</welcome-file>
         <welcome-file>index.html</welcome-file>
