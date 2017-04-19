@@ -24,7 +24,10 @@ public class Study implements Serializable {
     private String description;
     private String status;
     private String answerType; // [Text or Numeric]
-    private ArrayList<String> answerList; //List / Collection (your choice) of answer.
+    
+    private String choice1;
+    private String choice2;
+    private String choice3;
 
     public Study() {
         studyName = "";
@@ -37,29 +40,44 @@ public class Study implements Serializable {
         description = "";
         status = "";
         answerType = "";
+        choice1 = "";
+        choice2 = "";
+        choice3 = "";
     }
 
-    public Study(String StudyName, String StudyCode, String DateCreated, String Email, String Question, String Requestedparticipants, String Numofparticipants, String Description, String Status, String AnswerType, ArrayList<String> answerList) {
+    public Study(String StudyName, String StudyCode, String DateCreated, String Email, String Question, String requestedParticipants, String Numofparticipants, String Description, String Status, String AnswerType, String choice1, String choice2, String choice3) {
         this.studyName = StudyName;
         this.studyCode = StudyCode;
         this.dateCreated = DateCreated;
         this.email = Email;
         this.question = Question;
-        this.requestedParticipants = Requestedparticipants;
+        this.requestedParticipants = requestedParticipants;
         this.numOfParticipants = Numofparticipants;
         this.description = Description;
         this.status = Status;
         this.answerType = AnswerType;
-        this.answerList = answerList;
+        this.choice1 = choice1;
+        this.choice2 = choice2;
+        this.choice3 = choice3;
     }
 
 //URL that can be used in your pages that points to an image file 
 //within the project for your question. Generated from study code.
     public String getImageURL(String studyCode) {
         String imageURL = "";
-        if (studyCode.equalsIgnoreCase("GUI")) {
+        if (studyCode.equalsIgnoreCase("1")) {
             imageURL = "images/small_tree.jpg";
-        } else if (studyCode.equalsIgnoreCase("Sec")) {
+        }
+        if (studyCode.equalsIgnoreCase("2")) {
+            imageURL = "images/computer.jpg";
+        }
+        if (studyCode.equalsIgnoreCase("3")) {
+            imageURL = "images/small_tree.jpg";
+        }
+        if (studyCode.equalsIgnoreCase("4")) {
+            imageURL = "images/computer.jpg";
+        }
+        else {
             imageURL = "images/computer.jpg";
         }
         return imageURL;
@@ -84,8 +102,6 @@ public class Study implements Serializable {
         return 0;
     }   //– standard deviation
 
-    
-    
     public String getStudyName() {
         return studyName;
     }
@@ -126,20 +142,20 @@ public class Study implements Serializable {
         this.question = Question;
     }
 
-    public String getRequestedparticipants() {
+    public String getRequestedParticipants() {
         return requestedParticipants;
     }
 
-    public void setRequestedparticipants(String Requestedparticipants) {
-        this.requestedParticipants = Requestedparticipants;
+    public void setRequestedParticipants(String requestedParticipants) {
+        this.requestedParticipants = requestedParticipants;
     }
 
-    public String getNumofparticipants() {
+    public String getNumOfParticipants() {
         return numOfParticipants;
     }
 
-    public void setNumofparticipants(String Numofparticipants) {
-        this.numOfParticipants = Numofparticipants;
+    public void setNumOfParticipants(String numOfParticipants) {
+        this.numOfParticipants = numOfParticipants;
     }
 
     public String getDescription() {
@@ -166,12 +182,29 @@ public class Study implements Serializable {
         this.answerType = AnswerType;
     }
 
-    public ArrayList<String> getAnswerList() {
-        return answerList;
+    public String getChoice1() {
+        return choice1;
     }
 
-    public void setAnswerList(ArrayList<String> answerList) {
-        this.answerList = answerList;
+    public void setChoice1(String choice1) {
+        this.choice1 = choice1;
     }
+
+    public String getChoice2() {
+        return choice2;
+    }
+
+    public void setChoice2(String choice2) {
+        this.choice2 = choice2;
+    }
+
+    public String getChoice3() {
+        return choice3;
+    }
+
+    public void setChoice3(String choice3) {
+        this.choice3 = choice3;
+    }
+
 
 }
