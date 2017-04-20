@@ -110,12 +110,12 @@ public class StudyController extends HttpServlet {
                     If it does not exist
                     • Retrieve all requests that were submitted by the current user from the DB
                          */
-                        ArrayList<Study> studies = StudyDB.getStudies(user.getEmail());
+                        ArrayList<Study> studies = StudyDB.getStudies(user.getEmail(), "Reported");
                         request.setAttribute("study", studies);
                         url = "/reporth.jsp";
                     }
                 } else {
-                    ArrayList<Study> studies = StudyDB.getStudies(reporterEmail);
+                    ArrayList<Study> studies = StudyDB.getStudies(reporterEmail, "Reported");
                     request.setAttribute("study", studies);
                     url = "/reporth.jsp";
                 }
